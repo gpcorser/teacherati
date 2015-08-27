@@ -1,0 +1,36 @@
+Which of the following statements is FALSE?
+
+The function that defines the button action was specified in the file, activity_main.xml
+
+Clicking the green triangle showed the program running in the emulator
+
+The words on the button were specified in the button01 text property
+
+The color of the button was specified in the button01 background property
+
+The "hello world" was specified in the strings.xml file
+
+***
+
+In this lesson, which step was not needed to display the Toast message?
+
+Change the button01 text property from "New Button" to "Show Message"
+
+Drag the button widget to the preview screen
+
+Define the clickProcedure() method
+
+Assign the clickProcedure() method to the button01 onClick property
+
+Import the ActionBarActivity library
+
+***
+
+In this lesson, there was a function defining the button action. What was the file extension of the file in which the function was defined?
+
+.java
+.main
+.xml
+.txt
+.activity
+

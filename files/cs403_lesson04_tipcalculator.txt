@@ -1,0 +1,9 @@
+http://www.deitel.com/books/AndroidHTP2
+Download Code Examples
+Copy zip file to desktop
+Right click | 7-Zip | Extract Here
+
+Open Eclipse Projects | TipCalculator | src | com | deitel | tipcalculator | MainActivity.java
+Open Eclipse Projects | TipCalculator | res | layout | activity_main.xml
+Open Eclipse Projects | TipCalculator | res | values | dimens.xml
+Open Eclipse Projects | TipCalculator | res | values | strings.xml
