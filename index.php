@@ -87,7 +87,7 @@
             <div class="header-content-inner">
                 <h1 class="shadow">Teacherati</h1>
                 <hr>
-                <p class="shadow">Your source for keeping classes updated to the latest and greatest technology</p>
+                <p class="shadow"><b>Your source for keeping classes updated to the latest and greatest technology</b></p>
                 <a href="#about" class="btn btn-primary btn-xl page-scroll">Find Out More</a>
             </div>
         </div>
