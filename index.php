@@ -70,6 +70,9 @@
                         <a href="#" data-toggle="modal" data-target="#myModal" >Login</a>
                     </li>
                     <li>
+                        <a href="#" data-toggle="modal" data-target="#myModal2" >Register</a>
+                    </li>
+                    <li>
                         <a><!--Find replacement for spacing--></a>
                     </li>
                 </ul>
@@ -81,9 +84,9 @@
 
     <header>
         <div class="header-content">
-            <video autoplay loop poster="img/header.jpg" id="bgvid">
+            <!--<video autoplay loop poster="img/header.jpg" id="bgvid">
                 <source src="timelapse.mp4" type="video/mp4">
-            </video>
+            </video>-->
             <div class="header-content-inner">
                 <h1 class="shadow">Teacherati</h1>
                 <hr>
@@ -184,9 +187,9 @@
             <h4 class="modal-title">Login</h4>
           </div>
           <div class="modal-body">
-            <div class="col-md-4"></div>	
+            	
             	<?php
-            		echo '<form method="POST" action="login.php">
+            		echo '<form method="POST" action="per_list.php">
             		<input type="text" size="10" name="username" class="form-control" value="'. $uname .'" placeholder="email">
             		<input type="password" size="10" name="password" style="margin-top: 5px;" class="form-control" placeholder="password"><br>
             		'.$error.'
@@ -197,6 +200,69 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
+        </div>
+    
+      </div>
+    </div>
+    
+        <!-- Modal -->
+    <div id="myModal2" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content" style="margin-top: 30%; max-width: 50%; left: 25%;">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Register</h4>
+          </div>
+          <div class="modal-body">
+            <form class="form-horizontal" action="per_create.php" method="post">
+					
+                      <div class="control-group <?php echo !empty($nameError)?'error':'';?>">
+                        <div class="controls">
+                            <input name="name" type="text" class="form-control"  size="30" placeholder="Name" value="<?php echo !empty($name)?$name:'';?>">
+                            <?php if (!empty($nameError)): ?>
+                                <span class="help-inline"><?php echo $nameError;?></span>
+                            <?php endif; ?>
+                        </div>
+                      </div>
+					  
+                      <div class="control-group <?php echo !empty($emailError)?'error':'';?>">
+                        <div class="controls">
+                            <input name="email" type="text" class="form-control" style="margin-top: 5px;" placeholder="Email" value="<?php echo !empty($email)?$email:'';?>">
+                            <?php if (!empty($emailError)): ?>
+                                <span class="help-inline"><?php echo $emailError;?></span>
+                            <?php endif;?>
+                        </div>
+                      </div>
+					  
+                      <div class="control-group <?php echo !empty($phoneError)?'error':'';?>">
+                        <div class="controls">
+                            <input name="phone" type="text" class="form-control" style="margin-top: 5px;" placeholder="Phone: (555)555-5555" value="<?php echo !empty($phone)?$phone:'';?>">
+                            <?php if (!empty($phoneError)): ?>
+                                <span class="help-inline"><?php echo $phoneError;?></span>
+                            <?php endif;?>
+                        </div>
+                      </div>
+					  
+                      <div class="control-group <?php echo !empty($institutionError)?'error':'';?>">
+                        <div class="controls">
+                            <input name="institution" type="text" class="form-control" style="margin-top: 5px;" placeholder="Institution: SVSU" value="<?php echo !empty($institution)?$institution:'';?>">
+                            <?php if (!empty($institutionError)): ?>
+                                <span class="help-inline"><?php echo $institutionError;?></span>
+                            <?php endif;?>
+                        </div>
+                      </div>
+
+                      <div class="form-actions">
+                          <br />
+                          <button type="submit" style="width: 100%;" class="btn btn-primary">Create</button>
+                          
+                        </div>
+                    </form>
+                </div>
+          </div>
+          
         </div>
     
       </div>
@@ -215,6 +281,8 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="js/creative.js"></script>
+    
+  
 
 </body>
 
@@ -231,7 +299,7 @@
 			<div class="panel-heading"><b>Login</b></div>
 				<div class="panel-body">
 				<?php
-					echo '<form method="POST" action="login.php">
+					echo '<form method="POST" action="per_list.php">
 					<input type="text" size="10" name="username" class="form-control" value="'. $uname .'" placeholder="email">
 					<input type="password" size="10" name="password" style="margin-top: 5px;" class="form-control" placeholder="password"><br>
 					'.$error.'

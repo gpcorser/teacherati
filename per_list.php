@@ -37,7 +37,66 @@ session_start();
     <![endif]-->
 </head> 
  
-<body>
+<body id="page-top">
+	
+	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand page-scroll soft_shadow" href="#page-top">Teacherati</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="index.php">Home</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#services">Services</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">Contact</a>
+                    </li>
+                    <li>
+                        <a><!--Find replacement for spacing--></a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#myModal" >Login</a>
+                    </li>
+                    <li>
+                        <a href="#" data-toggle="modal" data-target="#myModal2" >Register</a>
+                    </li>
+                    <li>
+                        <a><!--Find replacement for spacing--></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+    
+        <section class="bg-primary" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <h2 class="section-heading shadow">Add junk below</h2>
+                    <hr class="light">
+                    <p class="shadow">Add junk below</p>
+                </div>
+            </div>
+        </div>
+    </section>
+	
+	
+	
     <div class="container">
 		<div class="row">
 			<h3 style="margin-left:50px; ">Persons List</h3>

@@ -185,8 +185,6 @@ aside {
 video#bgvid {
     position: fixed;
     min-width: 100%;
-    min-height: 100%;
-    width: auto;
     height: auto;
     z-index: -100;
     -webkit-transform: translateX(-50%) translateY(-50%);
@@ -205,7 +203,7 @@ header {
     min-height: auto;
     text-align: center;
     color: #fff;
-    /*background-image: url(../img/header.jpg); */
+    background-image: url(../img/header.png);
     background-position: center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
