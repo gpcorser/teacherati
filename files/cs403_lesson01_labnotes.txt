@@ -1,0 +1,48 @@
+Open Android Studio
+
+Click green triangle (run app)
+
+It takes time for emulator to load
+Right click on windows bottom bar to show windows side-by-side
+Slide up (click and drag up) with mouse
+You should see "Hello, World"
+Note: activity_main.xml
+Note: MainActivity.java
+Note: Component Tree
+Note: Properties
+Note: left sidebar app | res | values | strings.xml
+Note: Design tab and Text tab
+Note: Pallette, Layouts, Widgets...
+Drag: Widget: Button to screen display
+Change text and background properties
+
+Add code to MainActivity.java
+
+  public void clickProcedure(view v) {
+    Button button01 = (Button)findViewById(R.id.button01);
+    Toast.makeText(getBaseContext(), "Toast Message", Toast.LENGTH_SHORT).show();
+  }
+
+If you see red words, go to end of source code line and hit "Alt Enter"
+
+Click green triangle (run app)
+
+Now you should see red button
+
+Now go back to button01 property, onClick and choose
+  clickProcedure()
+
+Click green triangle (run app)
+
+Now if you click red button you will see a message appear that says "Toast Message"
+
+Now try changing the code a bit... change button color to GREEN
+
+  public void clickProcedure(view v) {
+    Button button01 = (Button)findViewById(R.id.button01);
+    Toast.makeText(getBaseContext(), "Toast Message", Toast.LENGTH_SHORT).show();
+
+    button01.setBackgroundColor(Color.GREEN);
+
+  }
+

@@ -1,0 +1,245 @@
+<?php 
+    session_start();
+    if (!$_SESSION['user_id']) header('Location: index.php');
+    ?>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Teacherati</title>
+        <!-- Bootstrap Core CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+        <!-- Custom Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" type="text/css">
+        <!-- Plugin CSS -->
+        <link rel="stylesheet" href="css/animate.min.css" type="text/css">
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="css/creative.css" type="text/css">
+        <!-- DataTables CSS -->
+        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.9/css/jquery.dataTables.css">
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <body id="page-top" style="background-image: url(img/background.png);">
+        <section class="bg-primary" id="about" style="background-image: url(img/laptop-on-work-desk.jpg); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat; background-attachment: fixed;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                        <h2 class="section-heading">Lesson List</h2>
+                        <hr class="light">
+                        <p>Here is a list of lessons written by your peers! Take a look around see what lesson interests you!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container" style="padding-top: 15px; ">
+            <div class="row">
+                <div class="col-sm-10">
+                    <table class="table table-striped table-bordered display ruleToRemove" id="table_id" >
+                        <col style="width: 5%;">
+                        <col style="width: 1%;">
+                        <col style="width: 2%;">
+                        <thead>
+                            <tr>
+                                <th>Lesson</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+			  <?php
+
+				echo
+			   include 'database.php';
+			   $pdo = Database::connect();
+			   $sql = 'SELECT * FROM lessons2 ORDER BY les_name ASC';
+			   foreach ($pdo->query($sql) as $row) {
+						echo '<tr>';
+						echo '<td>'. $row['les_name'] . '</td>';
+						echo '<td>'. $row['les_status'] . '</td>';
+			
+						echo '<td><a class="btn btn-primary" href="les_read.php?les_id='.$row['les_id'].'"><span class="glyphicon glyphicon-book" aria-hidden="true" on-click="RemoveRule();"></span></a>';
+
+						if($_SESSION['per_id']==$row['les_per_id'] or $_SESSION['per_id']==1) {
+							echo ' ';
+							echo '<a class="btn btn-success" href="les_update.php?les_id='.$row['les_id'].'"><span class="glyphicon glyphicon-pencil" aria-hidden="true" on-click="RemoveRule();"></span></a>';
+							echo ' ';
+							echo '<a class="btn btn-danger" href="les_delete.php?les_id='.$row['les_id'].'"><span class="glyphicon glyphicon-remove" aria-hidden="true" on-click="RemoveRule();"></span></a>';
+						}
+						echo '</td>';
+						echo '</tr>';
+			   }
+			   Database::disconnect();
+			  ?>
+			  </tbody>
+                    </table>
+                    <br /><br />
+                </div>
+                <div class="col-sm-2">
+                    <h2>Options</h2>
+                    <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-success">New Lesson</a>
+                    <a href="per_list.php" class="btn btn-warning" style="margin-top: 10px;">Account List</a>
+                    <a href="rev_list.php" class="btn btn-warning" style="margin-top: 10px;">Review List</a>
+                    <a href="logout.php" class="btn btn-primary" style="margin-top: 10px;">Logout</a>
+                </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div id="myModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content" style="margin-top: 30%; max-width: 80%; left: 10%;">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Create</h4>
+                    </div>
+                    <div class="modal-body">
+						<center>
+							<form class="form-horizontal" action="les_create.php" method="post">
+							  <div class="control-group <?php echo !empty($nameError)?'error':'';?>">
+								<div class="controls">
+									<input name="name" class="form-control" type="text"  placeholder="Lesson Name" value="<?php echo !empty($name)?$name:'';?>">
+									<?php if (!empty($nameError)): ?>
+										<span class="help-inline"><?php echo $nameError;?></span>
+									<?php endif; ?>
+								</div>
+							  </div>
+							  
+							  <div class="control-group">
+								<div class="controls"><br />
+									<?php
+									$pdo = Database::connect();
+									$sql = 'SELECT * FROM persons2 ORDER BY per_name ASC';
+									echo "<select class='form-control' name='les_per_id' id='person_id' >";
+									foreach ($pdo->query($sql) as $row) {
+										echo "<option selected='" . $row['per_id'] . " '> " . $row['per_name'] . "</option>";
+									}
+									echo "</select>";
+									Database::disconnect();
+									?>
+								</div>	<!-- end controls -->
+							  </div> <!-- end control group -->
+							  
+							  <div class="control-group <?php echo !empty($statusError)?'error':'';?>">
+								<div class="controls">
+								<br />
+									<input name="status" type="text" class="form-control" placeholder="Status (EX: Pending)" value="<?php echo !empty($status)?$status:'';?>">
+									<?php if (!empty($statusError)): ?>
+										<span class="help-inline"><?php echo $statusError;?></span>
+									<?php endif;?>
+								</div>
+							  </div>
+							  
+							  <div class="control-group <?php echo !empty($videoError)?'error':'';?>">
+								<div class="controls">
+								<br />
+									<input name="video" type="text" class="form-control" placeholder="Video URL" value="<?php echo !empty($video)?$video:'';?>">
+									<?php if (!empty($videoError)): ?>
+										<span class="help-inline"><?php echo $videoError;?></span>
+									<?php endif;?>
+								</div>
+							  </div>
+							  
+							  <div class="control-group <?php echo !empty($labnotesError)?'error':'';?>">
+								<div class="controls">
+								<br />
+									<input name="labnotes" type="text" class="form-control" placeholder="Lab Notes URL" value="<?php echo !empty($labnotes)?$labnotes:'';?>">
+									<?php if (!empty($labnotesError)): ?>
+										<span class="help-inline"><?php echo $labnotesError;?></span>
+									<?php endif;?>
+								</div>
+							  </div>
+							  
+							  <div class="control-group <?php echo !empty($quizError)?'error':'';?>">
+								<div class="controls">
+								<br />
+									<input name="quiz" type="text" class="form-control" placeholder="Quiz URL" value="<?php echo !empty($quiz)?$quiz:'';?>">
+									<?php if (!empty($quizError)): ?>
+										<span class="help-inline"><?php echo $quizError;?></span>
+									<?php endif;?>
+								</div>
+							  </div>
+							  
+							  <div class="control-group <?php echo !empty($answersError)?'error':'';?>">
+								<div class="controls">
+								<br />
+									<input name="answers" type="text" class="form-control" placeholder="Answers URL" value="<?php echo !empty($answers)?$answers:'';?>">
+									<?php if (!empty($answersError)): ?>
+										<span class="help-inline"><?php echo $answersError;?></span>
+									<?php endif;?>
+								</div>
+							  </div>
+							  
+							  <div class="form-actions">
+								  <br />
+								  <button type="submit" style="width: 100%;" on-click="RemoveRule ();" class="btn btn-primary">Create</button>
+								</div>
+							</form>
+						</center>
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+        </div>
+        <!-- jQuery -->
+        <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+        <!-- Plugin JavaScript -->
+        <script src="js/jquery.easing.min.js"></script>
+        <script src="js/jquery.fittext.js"></script>
+        <script src="js/wow.min.js"></script>
+        <!-- Custom Theme JavaScript -->
+        <script src="js/creative.js"></script>
+        <!-- DataTables -->
+        <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.9/js/jquery.dataTables.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#table_id').DataTable( {
+					initComplete: function () {
+						this.api().columns().every( function () {
+							var column = this;
+							var select = $('<select><option value=""></option></select>')
+								.appendTo( $(column.footer()).empty() )
+								.on( 'change', function () {
+									var val = $.fn.dataTable.util.escapeRegex(
+										$(this).val()
+									);
+			 
+									column
+										.search( val ? '^'+val+'$' : '', true, false )
+										.draw();
+								} );
+			 
+							column.data().unique().sort().each( function ( d, j ) {
+								select.append( '<option value="'+d+'">'+d+'</option>' )
+							} );
+						} );
+					}
+				} );
+			} );
+        </script>
+        <script type="text/javascript">
+            function RemoveRule () {
+                    // removes the ruleToRemove style rule that affects the table
+                var style = document.styleSheets[0];
+                style.removeRule (0);
+            
+                    // refreshes the table 
+                var table = document.getElementById ("myTable");
+                table.refresh ();
+            }
+        </script>
+    </body>
+</html>

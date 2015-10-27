@@ -1,0 +1,68 @@
+* 1. Which of the following is FALSE? (Answer source: codeigniter.com)
+
+CodeIgniter requires a template engine
+CodeIgniter is an application framework
+CodeIgniter uses the MVC model
+CodeIgniter generates clean URLs
+CodeIgniter is free
+
+* 2. Which of the following is FALSE? (Answer source: codeigniter.com)
+
+In CodeIgniter, index.php renders the view
+In CodeIgniter, index.php is the front controller
+In CodeIgniter, HTTP requests are filtered for security before the application controller is loaded
+In CodeIgniter, controllers load models and other resources needed to process a user request
+In CodeIgniter, if a cache file exists, it is sent directly to the browser, bypassing the normal system execution
+
+* 3. Which of the following is FALSE? (Answer source: codeigniter.com)
+
+CodeIgniter is a tightly coupled system
+Coupling is the degree to which components of a system rely on each other
+Singularity is the degree to which components have a narrowly focused purpose
+Dynamic instantiation is the degree to which components are loaded and routines executed only when requested, rather than globally
+CodeIgniter is dynamically instantiated
+CodeIgniter is designed to support high component singularity
+
+* 4. Which of the following is FALSE? (Answer source: codeigniter.com)
+
+CodeIgniter requires you to use the command line
+CodeIgniter is compatible with standard hosting accounts that run a variety of PHP versions and configurations
+CodeIgniter has clear, thorough documentation
+CodeIgniter is lightweight
+CodeIgniter requires less configuration than other PHP frameworks
+
+* 5. In CodeIgniter, the String Helper file contains functions that assist in working with strings. If String Helper is loaded, and the following code is executed, what will be the contents of $string variable? (Answer source: codeigniter.com)
+
+$this->load->helper('string');
+$string = ",Fred, Bill,, Joe, Jimmy,";
+$string = reduce_multiples($string, ", ", TRUE); 
+
+Fred, Bill, Joe, Jimmy
+,Fred, Bill, Joe, Jimmy
+,Fred, Bil, Joe, Jimy
+,Fred, BilJomy
+Fred
+
+* 6. Which of the following is FALSE? (Answer source: grocerycrud.com)
+
+Grocery CRUD does not require CSS, JavaScript, or HTML
+Grocery CRUD is an open source library
+Grocery CRUD enables developers to create a full stable CRUD application in just 30 seconds
+Grocery CRUD requires CodeIgniter
+Grocery CRUD requires PHP
+
+* 7. Which of the following is FALSE? (Answer source: grocerycrud.com)
+
+In Grocery CRUD, the code, display_as('Name','Customer'), causes the label, Name, to be displayed in the view using the data from the field, Customer
+In Grocery CRUD, the code, set_subject('Employee'), causes the Add link at the top of the user screen to be labeled Add Employee 
+In Grocery CRUD, the code, $crud->set_relation('user_id','users','username'), creates a dropdown list of users
+In Grocery CRUD, the code, $crud->set_field_upload('file_url','assets/uploads/files'), sets the field name, file_url, to be an uploaded file
+In Grocery CRUD, the code, $crud->set_theme('flexigrid'), is unnecessary because flexigrid is the default theme
+
+* 8. In the in-class Customers application, which of the following is FALSE? (Answer source: CodeIgniter lab notes on Canvas)
+
+the status field was not required
+to execute the CRUD application for Customers, in the video we typed https://ci-crud-mdroof.c9.io/index.php/customers/display, where "customers" is the controller and "display" is the method (function) within the controller
+the command, phpmyadmin-ctl install, is specific to Cloud9
+the file, application/controllers/examples.php, causes an error if "examples.php" is not capitalized ("Examples.php")
+to change the links at the top of the application, we edit the file views/errors/example.php

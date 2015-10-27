@@ -1,0 +1,46 @@
+In the Laravel simple-notes application...
+...in what order were the following steps performed?
+
+1 - Create Cloud9 Environment
+2 - Install Laravel5 using Composer
+3 - Modify .env file with database connection values
+4 - Install MySQL
+5 - Install phpmyadmin
+
+Match the terms with the definitions. 
+
+Laravel - open-source PHP web application framework
+Composer - dependency manager
+Artisan - command line interface
+Route - specification of what to do when a user navigates to a URL
+Model - specification of how application interacts with database 
+View - HTML and other code to display what the user sees
+Controller - groups of routes and functions organized into one or more classes
+Eloquent - object relational mapper
+
+Regarding the Laravel simple-notes application...
+...which of the following statements is TRUE?
+
+We used artisan to seed the 'users' table
+We used artisan to seed the 'notes' table
+We used artisan to seed the MySQL database called 'notes'
+We used phpmyadmin to seed the 'notes' table
+We used phpmyadmin to seed the 'users' table
+
+Regarding the Laravel simple-notes application...
+...which of the following statements is TRUE?
+
+We used artisan to create a 'notes' table
+We used artisan to create a MySQL database called 'notes'
+We used artisan to create a 'users' table
+We used phpmyadmin to create the 'users' table
+We used phpmyadmin to create the 'notes' table
+
+In the Laravel simple-notes application...
+PublicController DID NOT contain which function?
+
+read
+create
+update
+delete
+store
