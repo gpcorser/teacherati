@@ -59,7 +59,7 @@
                         <tbody>
 			  <?php
 
-				echo
+				
 			   include 'database.php';
 			   $pdo = Database::connect();
 			   $sql = 'SELECT * FROM lessons2 ORDER BY les_name ASC';
@@ -70,7 +70,7 @@
 			
 						echo '<td><a class="btn btn-primary" href="les_read.php?les_id='.$row['les_id'].'"><span class="glyphicon glyphicon-book" aria-hidden="true" on-click="RemoveRule();"></span></a>';
 
-						if($_SESSION['per_id']==$row['les_per_id'] or $_SESSION['per_id']==1) {
+						if($_SESSION['user_id']==$row['les_per_id'] or $_SESSION['user_id']==1) {
 							echo ' ';
 							echo '<a class="btn btn-success" href="les_update.php?les_id='.$row['les_id'].'"><span class="glyphicon glyphicon-pencil" aria-hidden="true" on-click="RemoveRule();"></span></a>';
 							echo ' ';
@@ -89,7 +89,11 @@
                     <h2>Options</h2>
                     <a href="#" data-toggle="modal" data-target="#myModal" class="btn btn-success">New Lesson</a>
                     <a href="per_list.php" class="btn btn-warning" style="margin-top: 10px;">Account List</a>
-                    <a href="rev_list.php" class="btn btn-warning" style="margin-top: 10px;">Review List</a>
+                    <?php
+                      if($_SESSION['user_id']==1) {
+                        echo '<a href="rev_list.php" class="btn btn-warning" style="margin-top: 10px;">Review List</a>';
+                      }
+                    ?>
                     <a href="logout.php" class="btn btn-primary" style="margin-top: 10px;">Logout</a>
                 </div>
             </div>
@@ -98,7 +102,7 @@
         <div id="myModal" class="modal fade" role="dialog">
             <div class="modal-dialog">
                 <!-- Modal content-->
-                <div class="modal-content" style="margin-top: 30%; max-width: 80%; left: 10%;">
+                <div class="modal-content" style="margin-top: 15%; max-width: 80%; left: 10%;">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h4 class="modal-title">Create</h4>
@@ -122,7 +126,9 @@
 									$sql = 'SELECT * FROM persons2 ORDER BY per_name ASC';
 									echo "<select class='form-control' name='les_per_id' id='person_id' >";
 									foreach ($pdo->query($sql) as $row) {
-										echo "<option selected='" . $row['per_id'] . " '> " . $row['per_name'] . "</option>";
+                    if($_SESSION['user_id']==$row['per_id']){
+										echo "<option value='" . $row['per_id'] . " ' selected='" . $row['per_id'] . " '> " . $row['per_name'] . "</option>";}
+                    
 									}
 									echo "</select>";
 									Database::disconnect();

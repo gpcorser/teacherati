@@ -210,7 +210,7 @@
                                     <input name="email" type="text" class="form-control" style="margin-top: 5px;" placeholder="Email" value="<?php echo !empty($email)?$email:'';?>">
                                     <?php if (!empty($emailError)): ?>
                                     <span class="help-inline"><?php echo $emailError;?></span>
-                                    <?php endif;?>
+                                    <?php endif;?>  
                                 </div>
                             </div>
                             <div class="control-group <?php echo !empty($phoneError)?'error':'';?>">
@@ -223,13 +223,14 @@
                             </div>
                             <div class="control-group <?php echo !empty($institutionError)?'error':'';?>">
                                 <div class="controls">
-                                    <input name="institution" type="text" class="form-control" style="margin-top: 5px;" placeholder="Institution: SVSU" value="<?php echo !empty($institution)?$institution:'';?>">
+                                    <input name="institution" type="text" class="form-control" style="margin-top: 5px;" placeholder="Institution: SVSU" >
                                     <?php if (!empty($institutionError)): ?>
                                     <span class="help-inline"><?php echo $institutionError;?></span>
                                     <?php endif;?>
                                 </div>
                             </div>
-                            <div class="form-actions">
+
+                            <div class="form-actions"> 
                                 <br />
                                 <button type="submit" style="width: 100%;" class="btn btn-primary">Create</button>
                             </div>

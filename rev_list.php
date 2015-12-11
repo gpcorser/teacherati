@@ -1,7 +1,7 @@
 <?php 
-session_start();
-if (!$_SESSION['email']) header('Location: login.php');
-?>
+    session_start();
+    if (!$_SESSION['user_id']) header('Location: index.php');
+    ?>
 <!DOCTYPE html> 
 <!-- from : http://www.startutorial.com/articles/view/php-crud-tutorial-part-1 --> 
 <html lang="en"> 
@@ -112,7 +112,7 @@ if (!$_SESSION['email']) header('Location: login.php');
 					echo '</tr>'; 
 			   } 
 			   Database::disconnect(); 
-			  ?> 
+			  ?>  
 			  </tbody> 
 
 			</table> 

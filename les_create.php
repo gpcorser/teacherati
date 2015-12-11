@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-if (!$_SESSION['email']) header('Location: login.php');
+if (!$_SESSION['user_id']) header('Location: index.php');
 
 
     require 'database.php';
@@ -18,7 +18,7 @@ if (!$_SESSION['email']) header('Location: login.php');
         $answersError = null;
 		 
         // keep track post values
-		$les_per_id = $_POST['les_per_id'];
+        $les_per_id = $_POST['les_per_id'];
         $name = $_POST['name'];
         $status = $_POST['status'];
         $video = $_POST['video'];

@@ -73,7 +73,7 @@
                                 echo '<td>'. $row['per_phone'] . '</td>';
                                 echo '<td >'. $row['per_institution'] . '</td>';
                                 echo '<td><a class="btn btn-warning" href="per_read.php?per_id='.$row['per_id'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>';
-                                if($_SESSION['per_id']==$row['per_id'] or $_SESSION['per_id']==1) { # per_id 1 is administrator
+                                if($_SESSION['user_id']==$row['per_id'] or $_SESSION['user_id']==1) { # user_id 1 is administrator
                                 	echo ' ';
                                 	echo '<a class="btn btn-success" href="per_update.php?per_id='.$row['per_id'].'"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>';
                                 	echo ' ';
@@ -121,7 +121,7 @@
                                     <input name="email" type="text" class="form-control" style="margin-top: 5px;" placeholder="Email" value="<?php echo !empty($email)?$email:'';?>">
                                     <?php if (!empty($emailError)): ?>
                                     <span class="help-inline"><?php echo $emailError;?></span>
-                                    <?php endif;?>
+                                    <?php endif;?>  
                                 </div>
                             </div>
                             <div class="control-group <?php echo !empty($phoneError)?'error':'';?>">
@@ -134,15 +134,23 @@
                             </div>
                             <div class="control-group <?php echo !empty($institutionError)?'error':'';?>">
                                 <div class="controls">
-                                    <input name="institution" type="text" class="form-control" style="margin-top: 5px;" placeholder="Institution: SVSU" value="<?php echo !empty($institution)?$institution:'';?>">
+                                    <input name="institution" type="text" class="form-control" style="margin-top: 5px;" placeholder="Institution: SVSU" >
                                     <?php if (!empty($institutionError)): ?>
                                     <span class="help-inline"><?php echo $institutionError;?></span>
                                     <?php endif;?>
                                 </div>
                             </div>
-                            <div class="form-actions">
+                            <div class="control-group <?php echo !empty($nameError)?'error':'';?>">
+                                <div class="controls">
+                                    <input name="password" type="password" class="form-control"  size="30" placeholder="Password" >
+                                    <?php if (!empty($passwordError)): ?>
+                                    <span class="help-inline"><?php echo $nameError;?></span>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
+                            <div class="form-actions"> 
                                 <br />
-                                <button type="submit" style="width: 100%;" on-click="RemoveRule ();" class="btn btn-primary">Create</button>
+                                <button type="submit" style="width: 100%;" class="btn btn-primary">Create</button>
                             </div>
                         </form>
                     </div>

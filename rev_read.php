@@ -1,7 +1,7 @@
 <?php 
 
 session_start();
-if (!$_SESSION['email']) header('Location: login.php');
+if (!$_SESSION['user_id']) header('Location: index.php');
 
 
     require 'database.php'; 

@@ -4,7 +4,7 @@
 session_start();
 
 /*** check if the users is already logged in ***/
-if(isset( $_SESSION['per_id'] ))
+if(isset( $_SESSION['user_id'] ))
 {
     $message = 'User is already logged in';
 }
@@ -19,6 +19,7 @@ else
     /*** if we are here the data is valid and we can insert it into database ***/
     $uname = filter_var($_POST['username'], FILTER_SANITIZE_STRING);
     $pass = filter_var($_POST['password'], FILTER_SANITIZE_STRING);
+    
 
         
     /*** connect to database ***/
@@ -55,6 +56,7 @@ else
 
         /*** check for a result ***/
         $user_id = $stmt->fetchColumn();
+        
 
         /*** if we have no result then fail boat ***/
         if($user_id == false)
