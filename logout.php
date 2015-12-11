@@ -1,5 +1,6 @@
 <?php	
 	session_start();
+<<<<<<< HEAD
     $_SESSION['user_id'] = "";
     session_destroy();
 ?>
@@ -40,3 +41,9 @@
 </head> 
 
 </html>
+=======
+    $_SESSION['email'] = "";
+    session_destroy();
+	header('Location: login.php');
+?>
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa

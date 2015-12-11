@@ -1,7 +1,11 @@
 <?php
 
 session_start();
+<<<<<<< HEAD
 if (!$_SESSION['user_id']) header('Location: index.php');
+=======
+if (!$_SESSION['email']) header('Location: login.php');
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
 
 
     require 'database.php';
@@ -80,6 +84,7 @@ if (!$_SESSION['user_id']) header('Location: index.php');
 
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -118,6 +123,17 @@ if (!$_SESSION['user_id']) header('Location: index.php');
                 </div>
             </div>
         </section>
+=======
+<head> 
+    <meta charset="utf-8"> 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"> 
+    <style> .glyphicon{ color: #f6d200; } </style> 
+</head> 
+ 
+<body>
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
     <div class="container">
 
 		<div class="span10 offset1">
@@ -207,10 +223,17 @@ if (!$_SESSION['user_id']) header('Location: index.php');
                             <?php endif;?>
                         </div>
                       </div>
+<<<<<<< HEAD
 					  <br />
 			  <div class="form-actions">
 				  <button type="submit" class="btn btn-success">Update</button>
 				  <a class="btn btn-primary" href="les_list.php">Back</a>
+=======
+					  
+			  <div class="form-actions">
+				  <button type="submit" class="btn btn-success">Update</button>
+				  <a class="btn" href="les_list.php">Back</a>
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
 				</div>
 			</form>
 		</div>

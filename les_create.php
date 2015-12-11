@@ -1,7 +1,11 @@
 <?php
 
 session_start();
+<<<<<<< HEAD
 if (!$_SESSION['user_id']) header('Location: index.php');
+=======
+if (!$_SESSION['email']) header('Location: login.php');
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
 
 
     require 'database.php';
@@ -18,7 +22,11 @@ if (!$_SESSION['user_id']) header('Location: index.php');
         $answersError = null;
 		 
         // keep track post values
+<<<<<<< HEAD
         $les_per_id = $_POST['les_per_id'];
+=======
+		$les_per_id = $_POST['les_per_id'];
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
         $name = $_POST['name'];
         $status = $_POST['status'];
         $video = $_POST['video'];

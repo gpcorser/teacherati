@@ -1,7 +1,11 @@
 <?php 
 
 session_start();
+<<<<<<< HEAD
 if (!$_SESSION['user_id']) header('Location: index.php');
+=======
+if (!$_SESSION['email']) header('Location: login.php');
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
 
     require 'database.php'; 
   
@@ -124,12 +128,16 @@ h1 { font-size: 1.5em; margin: 10px; }
                          
                         echo "<select class='form-control' name='rev_per_id' id='rev_per_id' >"; 
                         foreach ($pdo->query($sql) as $row) { 
+<<<<<<< HEAD
                           if($_SESSION['user_id']==$row['per_id']){
                             echo "<option value='" . $row['per_id'] . " ' selected='" . $row['per_id'] . " '> " . $row['per_name'] . "</option>";
                           }
                           else{
                             echo "<option value='" . $row['per_id'] . " '> " . $row['per_name'] . "</option>";
                           }
+=======
+                            echo "<option value='" . $row['per_id'] . " '> " . $row['per_name'] . "</option>"; 
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
                         } 
                         echo "</select>"; 
                         Database::disconnect(); 

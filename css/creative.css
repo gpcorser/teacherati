@@ -75,7 +75,11 @@ p {
 }
 
 section {
+<<<<<<< HEAD
     padding: 30px 0;
+=======
+    padding: 100px 0;
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
 }
 
 aside {
@@ -134,7 +138,11 @@ aside {
 @media(min-width:768px) {
     .navbar-default {
         border-color: rgba(255,255,255,.3);
+<<<<<<< HEAD
         background-color: rgba(0,0,0,0.2);
+=======
+        background-color: transparent;
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
     }
 
     .navbar-default .navbar-header .navbar-brand {
@@ -233,7 +241,11 @@ header .header-content .header-content-inner p {
     margin-bottom: 50px;
     font-size: 16px;
     font-weight: 300;
+<<<<<<< HEAD
     color: rgba(255,255,255);
+=======
+    color: rgba(255,255,255,.7);
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
 }
 
 @media(min-width:768px) {
@@ -464,7 +476,11 @@ fieldset[disabled] .btn-primary.active {
 
 .btn {
     border: 0;
+<<<<<<< HEAD
     border-radius: 5px;
+=======
+    border-radius: 300px;
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
     text-transform: uppercase;
     font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
     font-weight: 700;

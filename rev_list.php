@@ -1,7 +1,13 @@
 <?php 
+<<<<<<< HEAD
     session_start();
     if (!$_SESSION['user_id']) header('Location: index.php');
     ?>
+=======
+session_start();
+if (!$_SESSION['email']) header('Location: login.php');
+?>
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
 <!DOCTYPE html> 
 <!-- from : http://www.startutorial.com/articles/view/php-crud-tutorial-part-1 --> 
 <html lang="en"> 
@@ -112,7 +118,11 @@
 					echo '</tr>'; 
 			   } 
 			   Database::disconnect(); 
+<<<<<<< HEAD
 			  ?>  
+=======
+			  ?> 
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
 			  </tbody> 
 
 			</table> 

@@ -1,7 +1,11 @@
 <?php
 
 session_start();
+<<<<<<< HEAD
 if (!$_SESSION['user_id']) header('Location: index.php');
+=======
+if (!$_SESSION['email']) header('Location: login.php');
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
 
     require 'database.php';
  
@@ -26,7 +30,10 @@ if (!$_SESSION['user_id']) header('Location: index.php');
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $institution = $_POST['institution'];
+<<<<<<< HEAD
         $password = $_POST['password'];
+=======
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
          
         // validate input
         $valid = true;
@@ -40,10 +47,17 @@ if (!$_SESSION['user_id']) header('Location: index.php');
             $pdo = Database::connect();
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $sql = "UPDATE persons2  set per_name = ?, 
+<<<<<<< HEAD
 			    per_email = ?,per_password = ?, per_phone = ?, per_institution = ?
 				WHERE per_id = ?";
             $q = $pdo->prepare($sql);
             $q->execute(array($name,$email,$password,$phone,$institution,$id));
+=======
+			    per_email = ?, per_phone = ?, per_institution = ?
+				WHERE per_id = ?";
+            $q = $pdo->prepare($sql);
+            $q->execute(array($name,$email,$phone,$institution,$id));
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
             Database::disconnect();
             header("Location: per_list.php");
         }
@@ -57,14 +71,19 @@ if (!$_SESSION['user_id']) header('Location: index.php');
         $name = $data['per_name'];
         $email = $data['per_email'];
         $phone = $data['per_phone'];
+<<<<<<< HEAD
         $institution = $data['per_institution'];
         $password = $data['per_password'];
+=======
+		$institution = $data['per_institution'];
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
         Database::disconnect();
     }
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+<<<<<<< HEAD
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -103,6 +122,17 @@ if (!$_SESSION['user_id']) header('Location: index.php');
                 </div>
             </div>
         </section>
+=======
+<head> 
+    <meta charset="utf-8"> 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet"> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/2.3.2/js/bootstrap.min.js"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"> 
+    <style> .glyphicon{ color: #f6d200; } </style> 
+</head> 
+ 
+<body>
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
     <div class="container">
 
 		<div class="span10 offset1">
@@ -151,6 +181,7 @@ if (!$_SESSION['user_id']) header('Location: index.php');
 					<?php endif;?>
 				</div>
 			  </div>
+<<<<<<< HEAD
         
         <div class="control-group <?php echo !empty($nameError)?'error':'';?>">
 				<label class="control-label">Password</label>
@@ -166,11 +197,23 @@ if (!$_SESSION['user_id']) header('Location: index.php');
 			  <br />
 				  <button type="submit" class="btn btn-success">Update</button>
 				  <a class="btn btn-primary" href="per_list.php">Back</a>
+=======
+
+			  <div class="form-actions">
+				  <button type="submit" class="btn btn-success">Update</button>
+				  <a class="btn" href="per_list.php">Back</a>
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
 				</div>
 			</form>
 		</div>
                  
     </div> <!-- /container -->
 	
+<<<<<<< HEAD
+=======
+		<p align="center">
+	<a href="phpReader.php?file='<?php echo __FILE__; ?>'" >source code</a>
+	</p>
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
   </body>
 </html>

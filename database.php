@@ -34,7 +34,10 @@ class Database
     {
         self::$cont = null;
     }
+<<<<<<< HEAD
     
     
+=======
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
 }
 ?>

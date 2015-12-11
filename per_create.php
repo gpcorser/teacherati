@@ -9,14 +9,20 @@
         $emailError = null;
         $phoneError = null;
         $institutionError = null;
+<<<<<<< HEAD
         $passwordError = null;
+=======
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
 		 
         // keep track post values
         $name = $_POST['name'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
         $institution = $_POST['institution'];
+<<<<<<< HEAD
         $password = $_POST['password'];
+=======
+>>>>>>> b68ea2a2fe19b4f1deb5de9b5356392b998d6faa
 
         // validate input
 		$valid = true;
